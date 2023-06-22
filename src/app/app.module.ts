@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DistanciaModule } from './distancia/distancia.module';
 import { ResistenciasComponent } from './resistencias/resistencias.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ResistenciasComponent } from './resistencias/resistencias.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    DistanciaModule
+    DistanciaModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,93 @@
-<p>resistencias works!</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <img src="https://sdindustrial.com.mx/wp-content/uploads/2022/09/codigos-colores-resistencias.png.webp"
+                class="img-thumbnail" width="500" height="500">
+        </div>
+        <div class="col-6 text-center">
+            <form action="" id="resistencia">
+                <div class="col-12">
+                    <label for="banda1">Seleccione el color de la primera banda:</label>
+                    <select class="form-select " id="banda1" name="banda1" [(ngModel)]="banda1" required>
+                        <option value="0" selected>Negro</option>
+                        <option value="1">Cafe</option>
+                        <option value="2">Rojo</option>
+                        <option value="3">Naranja</option>
+                        <option value="4">Amarillo</option>
+                        <option value="5">Verde</option>
+                        <option value="6">Azul</option>
+                        <option value="7">Violeta</option>
+                        <option value="8">Gris</option>
+                        <option value="9">Blanco</option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-12">
+                    <label for="banda2">Seleccione el color de la segunda banda:</label>
+                    <select class="form-select " id="banda2" name="banda2" [(ngModel)]="banda2" required>
+                        <option value="0" selected>Negro</option>
+                        <option value="1">Cafe</option>
+                        <option value="2">Rojo</option>
+                        <option value="3">Naranja</option>
+                        <option value="4">Amarillo</option>
+                        <option value="5">Verde</option>
+                        <option value="6">Azul</option>
+                        <option value="7">Violeta</option>
+                        <option value="8">Gris</option>
+                        <option value="9">Blanco</option>
+                    </select>
+                </div>
+                <br>
+                <div class="col-12">
+                    <label for="banda3">Seleccione el valor de la tercera banda:</label>
+                    <select class="form-select " id="banda3" name="banda3" [(ngModel)]="banda3" required>
+                        <option value="1" selected>Negro</option>
+                        <option value="10">Cafe</option>
+                        <option value="100">Rojo</option>
+                        <option value="1000">Naranja</option>
+                        <option value="10000">Amarillo</option>
+                        <option value="100000">Verde</option>
+                        <option value="1000000">Azul</option>
+                        <option value="10000000">Violeta</option>
+                        <option value="100000000">Gris</option>
+                        <option value="1000000000">Blanco</option>
+                    </select>
+                </div>
+                <br>
+                <p>Seleccione la tolerancia</p>
+                <div>
+                    <input class="form-check-input" type="radio" id="oro" name="tolerancia" value="0.1"
+                        [(ngModel)]="tolerancia" checked>
+                    <label for="oro">Oro = 5%</label>
+                </div>
+                <hr>
+                <div>
+                    <input class="form-check-input" type="radio" id="plata" name="tolerancia" value="0.01"
+                        [(ngModel)]="tolerancia">
+                    <label for="plata">Plata = 10%</label>
+                </div>
+                <hr>
+                <button type="submit" class="btn btn-success col-12" (click)="calcularResistencia()">Calcular</button>
+            </form>
+            <br>
+        </div>
+        <table class="table table-hover table-bordered table-secondary text-center">
+            <thead class="thead">
+                <tr>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Valor Mínimo</th>
+                    <th scope="col">Valor Máximo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th> {{ resultado.valor }} Ω</th>
+                    <td> {{ resultado.valorMinimo }} Ω</td>
+                    <td> {{ resultado.valorMaximo }} Ω</td>
+                </tr>
+            </tbody>
+        </table>
+
+    
+    </div>
+</div>
