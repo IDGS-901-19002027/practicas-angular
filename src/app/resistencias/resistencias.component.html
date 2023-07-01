@@ -40,7 +40,7 @@
                 <br>
                 <div class="col-12">
                     <label for="banda3">Seleccione el valor de la tercera banda:</label>
-                    <select class="form-select " id="banda3" name="banda3" [(ngModel)]="banda3" required>
+                    <select class="form-select" id="banda3" name="banda3" [(ngModel)]="banda3" required>
                         <option value="1" selected>Negro</option>
                         <option value="10">Cafe</option>
                         <option value="100">Rojo</option>
@@ -54,26 +54,25 @@
                     </select>
                 </div>
                 <br>
-                <p>Seleccione la tolerancia</p>
-                <div>
-                    <input class="form-check-input" type="radio" id="oro" name="tolerancia" value="0.1"
-                        [(ngModel)]="tolerancia" checked>
-                    <label for="oro">Oro = 5%</label>
-                </div>
-                <hr>
-                <div>
-                    <input class="form-check-input" type="radio" id="plata" name="tolerancia" value="0.01"
-                        [(ngModel)]="tolerancia">
-                    <label for="plata">Plata = 10%</label>
+                <div class="col-12">
+                    <label for="tolerancia">Seleccione la tolerancia:</label>
+                    <select class="form-select " id="tolerancia" name="tolerancia" [(ngModel)]="tolerancia" required>
+                        <option value="0.1" selected>Oro</option>
+                        <option value="0.01">Plata</option>
+                    </select>
                 </div>
                 <hr>
                 <button type="submit" class="btn btn-success col-12" (click)="calcularResistencia()">Calcular</button>
             </form>
             <br>
         </div>
-        <table class="table table-hover table-bordered table-secondary text-center">
-            <thead class="thead">
+        <table class="table table-hover table-bordered text-center mt-4">
+            <thead class="table-dark">
                 <tr>
+                    <th scope="col">Primera Banda</th>
+                    <th scope="col">Segunda Banda</th>
+                    <th scope="col">Tercera Banda</th>
+                    <th scope="col">Tolerancia</th>
                     <th scope="col">Valor</th>
                     <th scope="col">Valor Mínimo</th>
                     <th scope="col">Valor Máximo</th>
@@ -81,13 +80,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <th> {{ resultado.valor }} Ω</th>
-                    <td> {{ resultado.valorMinimo }} Ω</td>
-                    <td> {{ resultado.valorMaximo }} Ω</td>
+                    <!-- ngStyle permite aplicar estilos dinamicamente -->
+                    <th [ngStyle]="{ 'background-color': colores[banda1]?.color }"></th>
+                    <th [ngStyle]="{ 'background-color': colores[banda2]?.color}"></th>
+                    <th [style.background-color]="obtenerColor(banda3)"></th>
+                    <th [style.background-color]="obtenerTolerancia()"></th>
+                    <th> {{ resultado.valor }} Ω </th>
+                    <td> {{ resultado.valorMinimo }} Ω </td>
+                    <td> {{ resultado.valorMaximo }} Ω </td>
                 </tr>
             </tbody>
         </table>
-
-    
     </div>
 </div>

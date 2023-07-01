@@ -5,18 +5,25 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DistanciaModule } from './distancia/distancia.module';
 import { ResistenciasComponent } from './resistencias/resistencias.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PizzeriaComponent } from './pizzeria/pizzeria.component';
+import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     ResistenciasComponent,
+    PizzeriaComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     DistanciaModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
