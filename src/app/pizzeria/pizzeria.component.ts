@@ -7,6 +7,7 @@ import { IPizzas } from './pizzas';
   templateUrl: './pizzeria.component.html',
   styleUrls: ['./pizzeria.component.css']
 })
+
 export class PizzeriaComponent {
   pizzasForm!: FormGroup;
   pedido: IPizzas[] = [];

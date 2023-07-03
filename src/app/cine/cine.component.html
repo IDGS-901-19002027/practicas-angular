@@ -1,0 +1,63 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="cineForm">
+    <div class="container-fluid py-5">
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre" id="nombre" name="nombre" required>
+                <div *ngIf="cineForm.get('nombre')?.touched && 
+                            cineForm.get('nombre')?.errors?.['required']" class="alert alert-danger">
+                    Este campo es requerido
+                </div>
+                <div *ngIf="cineForm.get('nombre')?.touched && 
+                            cineForm.get('nombre')?.errors?.['minlength']" class="alert alert-danger">
+                    El nombre debe ser más largo que
+                    {{cineForm.get('nombre')?.errors?.['minlength']?.requiredLength}}
+                </div>
+            </div>
+            <div class="col-6 mb-3">
+                <label for="numPersonas" class="form-label">Núm. Personas</label>
+                <input type="text" class="form-control" formControlName="numPersonas" id="numPersonas" name="numPersonas" required>
+                <div *ngIf="cineForm.get('numPersonas')?.touched && 
+                            cineForm.get('numPersonas')?.errors?.['required']" class="alert alert-danger">
+                    Este campo es requerido
+                </div>
+            </div>
+            <div class="col-6 mb-3">
+                <label for="numBoletos" class="form-label">Núm. Boletos</label>
+                <input type="text" class="form-control" formControlName="numBoletos" id="numBoletos" name="numBoletos" required>
+                <div *ngIf="cineForm.get('numBoletos')?.touched && 
+                            cineForm.get('numBoletos')?.errors?.['required']" class="alert alert-danger">
+                    Este campo es requerido
+                </div>
+                <div *ngIf="cineForm.get('numBoletos')?.touched && 
+                            cineForm.get('numBoletos')?.errors?.['min']" class="alert alert-danger">
+                    El número de boletos a comprar debe ser mayor a 1
+                </div>
+            </div>
+            <div class="col-6 mb-3 text-center">
+                <label for="" class="form-label">¿Cuenta con tarjeta de descuento?</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="tarjeta" id="conTarjeta" value="true">
+                    <label class="form-check-label" for="conTarjeta">Sí, cuento con mi tarjeta.</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" formControlName="tarjeta" id="sinTarjeta" value="false">
+                    <label class="form-check-label" for="sinTarjeta">No, no tengo tarjeta.</label>
+                  </div>
+            </div>
+            <div class="col-6 mb-3"></div>
+            <div class="col-6 mb-3">
+                <button (click)="obtenerDatos()" class="btn btn-success form-control" type="submit">Calcular Total</button>
+            </div>
+            <div *ngIf="respuesta.length > 0" class="col-6 mb-3">
+                <p class="text-center alert alert-danger">{{respuesta}}</p>
+            </div>
+            <div *ngIf="total > 0" class="col-6 mb-3">
+                <p class="text-center alert alert-success">
+                    El total de los boletos sería ${{total}} MXN<br>
+                    A nombre de {{nombre}}
+                </p>
+            </div>
+        </div>
+    </div>
+</form>
